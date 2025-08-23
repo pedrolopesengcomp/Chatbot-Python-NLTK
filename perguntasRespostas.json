@@ -1,0 +1,119 @@
+{
+  "intents": [
+    {
+      "tag": "saudacao",
+      "patterns": [
+        "Oi",
+        "Ola",
+        "Bom dia",
+        "Boa tarde",
+        "Boa noite",
+        "E ai",
+        "Como vai?"
+      ],
+      "responses": [
+        "Ola! Seja bem-vindo(a) a nossa Empresa Junior de Engenharia de Computacao.",
+        "Oi! E um prazer falar com voce. Como posso ajudar?",
+        "Ola! Estou aqui para responder suas duvidas sobre a empresa."
+      ]
+    },
+    {
+      "tag": "sobre_empresa",
+      "patterns": [
+        "O que e a empresa junior?",
+        "Fale sobre a empresa",
+        "Quem sao voces?",
+        "O que voces fazem?",
+        "O que e a Empresa Junior de Engenharia de Computacao?"
+      ],
+      "responses": [
+        "Somos uma Empresa Junior formada por estudantes de Engenharia de Computacao do CEFET-MG. Realizamos projetos e servicos na area de tecnologia com qualidade e precos acessiveis.",
+        "A Empresa Junior e composta por alunos da graduacao que desenvolvem solucoes tecnologicas e de engenharia, conectando aprendizado academico com demandas reais do mercado."
+      ]
+    },
+    {
+      "tag": "servicos",
+      "patterns": [
+        "Quais servicos voces oferecem?",
+        "O que voces desenvolvem?",
+        "Quais sao as areas de atuacao?",
+        "Voces fazem desenvolvimento de software?",
+        "Voces fazem sites?"
+      ],
+      "responses": [
+        "Atuamos no desenvolvimento de sistemas web, aplicativos, automacao, analise de dados e consultoria tecnologica.",
+        "Realizamos desde criacao de sites e aplicativos ate projetos de automacao e solucoes personalizadas em tecnologia."
+      ]
+    },
+    {
+      "tag": "integracao",
+      "patterns": [
+        "Como posso contratar?",
+        "Como faco para contratar voces?",
+        "Como funciona a integracao com clientes?",
+        "Qual o processo para iniciar um projeto?",
+        "Como comeco um projeto com voces?"
+      ],
+      "responses": [
+        "Para contratar, basta entrar em contato pelo nosso e-mail ou redes sociais. Conversaremos sobre sua necessidade, faremos um orcamento e iniciaremos o desenvolvimento.",
+        "O processo e simples: conversamos sobre sua demanda, fazemos um levantamento de requisitos, elaboramos a proposta e damos inicio ao projeto."
+      ]
+    },
+    {
+      "tag": "projetos_realizados",
+      "patterns": [
+        "Quais projetos voces ja fizeram?",
+        "Me fale de trabalhos anteriores",
+        "Voces tem portfolio?",
+        "Quais foram os projetos realizados?"
+      ],
+      "responses": [
+        "Ja realizamos projetos de sites institucionais, sistemas de gerenciamento, aplicacoes de automacao industrial e plataformas de e-commerce.",
+        "Nosso portfolio inclui desde sites e sistemas de gestao ate solucoes em IoT e analise de dados."
+      ]
+    },
+    {
+      "tag": "participar_empresa",
+      "patterns": [
+        "Como posso participar da empresa?",
+        "Posso fazer parte?",
+        "Quero entrar na empresa",
+        "Como virar membro?",
+        "Tem processo seletivo?"
+      ],
+      "responses": [
+        "Realizamos processos seletivos periodicamente. Fique atento as nossas redes sociais para acompanhar as inscricoes.",
+        "Qualquer aluno do curso pode participar do processo seletivo. Divulgamos as datas e etapas nas redes sociais."
+      ]
+    },
+    {
+      "tag": "contato",
+      "patterns": [
+        "Qual e o contato?",
+        "Como falo com voces?",
+        "Voces tem e-mail?",
+        "Qual e o Instagram da empresa?",
+        "Redes sociais"
+      ],
+      "responses": [
+        "Voce pode nos contatar pelo e-mail empresa.junior@cefetmg.br ou pelo Instagram @empresa_junior_cefet.",
+        "Nossos canais oficiais sao: e-mail empresa.junior@cefetmg.br e Instagram @empresa_junior_cefet."
+      ]
+    },
+    {
+      "tag": "despedida",
+      "patterns": [
+        "Tchau",
+        "Ate mais",
+        "Falou",
+        "Valeu",
+        "Ate logo"
+      ],
+      "responses": [
+        "Ate logo! Foi um prazer falar com voce.",
+        "Tchau! Espero que possamos trabalhar juntos em breve.",
+        "Ate mais! Qualquer duvida e so chamar."
+      ]
+    }
+  ]
+}
