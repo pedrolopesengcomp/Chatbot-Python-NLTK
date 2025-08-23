@@ -2,7 +2,6 @@ fastapi
 uvicorn[standard]
 python-dotenv
 requests
-ntlk
 torch
 random
 json
