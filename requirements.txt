@@ -3,5 +3,4 @@ uvicorn[standard]
 python-dotenv
 requests
 torch
-random
 json
