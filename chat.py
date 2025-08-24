@@ -12,9 +12,13 @@ class ChatBot:
         try:
             nltk.data.find('tokenizers/punkt')
             nltk.data.find("stemmers/rslp")
+            nltk.download('wordnet')
+            nltk.download('omw-1.4')
         except LookupError:
             nltk.download("punkt")
             nltk.download("rslp")
+            nltk.download('wordnet')
+            nltk.download('omw-1.4')
         # Dados json
         with open('perguntasRespostas.json', 'r', encoding='utf-8') as f:
             self.intents = json.load(f)
