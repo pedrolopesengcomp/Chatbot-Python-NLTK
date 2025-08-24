@@ -9,9 +9,12 @@ class ChatBot:
 
     def __init__(self):
         # Baixando recursos nltk
-        nltk.download('punkt')
-        nltk.download('rslp')
-
+        try:
+            nltk.data.find('tokenizers/punkt')
+            nltk.data.find("stemmers/rslp")
+        except LookupError:
+            nltk.download("punkt")
+            nltk.download("rslp")
         # Dados json
         with open('perguntasRespostas.json', 'r', encoding='utf-8') as f:
             self.intents = json.load(f)
