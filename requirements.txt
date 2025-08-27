@@ -1,7 +1,32 @@
-fastapi
-uvicorn[standard]
-python-dotenv
-requests
-torch
-nltk
-numpy
+# Requisitos principais para uma API FastAPI
+fastapi                  # framework web
+uvicorn                  # servidor ASGI
+python-dotenv            # carregar variáveis de ambiente de .env
+requests                 # fazer requisições HTTP
+torch                    # PyTorch para modelos de ML
+nltk                     # Biblioteca de processamento de linguagem natural
+numpy                    # Biblioteca para computação numérica   
+sqlalchemy               # ORM
+mysql-connector-python   # driver para MySQL
+StrEnum                  # enumerações de string (Python 3.11+)
+# python-multipart       # upload de arquivos / form data
+# aiofiles               # servir/guardar arquivos de forma assíncrona
+# alembic                # migrações de banco de dados
+# asyncpg                # driver assíncrono para PostgreSQL (use se for Postgres)
+# psycopg2-binary        # driver sync para PostgreSQL (opcional)
+# python-dotenv          # carregar variáveis de ambiente de .env
+# python-jose[cryptography]  # JWT e criptografia
+# email-validator        # validação de e-mails (usado por pydantic)
+# orjson                 # alternativa rápida para JSON (opcional)
+# httpx                  # cliente HTTP assíncrono (para testes / integrações)
+
+# Dependências de desenvolvimento (opcionais)
+# pytest
+# pytest-asyncio
+# black
+# mypy
+
+# Para instalar todas as dependências, você pode usar:
+# ./venv/Scripts/Activate.ps1
+# python.exe -m pip install --upgrade pip
+# pip install -r requirements.txt

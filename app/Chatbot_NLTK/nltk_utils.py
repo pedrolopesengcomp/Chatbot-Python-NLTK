@@ -6,11 +6,13 @@ from nltk.stem import RSLPStemmer
 try:
     nltk.data.find('tokenizers/punkt')
     nltk.download('punkt')
+    nltk.download("rslp")
 except LookupError:
     nltk.download("punkt")
     nltk.download("punkt_tab")
     nltk.download('wordnet')
     nltk.download('omw-1.4')
+    nltk.download("rslp")
 
 stemmer = RSLPStemmer()
 
