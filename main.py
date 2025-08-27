@@ -35,8 +35,6 @@ def verify(mode: str = None, hub_challenge: str = None, hub_verify_token: str = 
     print(f'mode == subscribe : {mode == "subscribe"} - mode: {mode}')
     print(f'hub_verify_token == VERIFY_TOKEN : {hub_verify_token == VERIFY_TOKEN} - hub: {hub_verify_token}')
     print(VERIFY_TOKEN)
-    if(mode == "subscribe"):
-        print("OK")
     if mode == "subscribe" and hub_verify_token == VERIFY_TOKEN:
         return PlainTextResponse(hub_challenge or "", status_code=200)
     else:
