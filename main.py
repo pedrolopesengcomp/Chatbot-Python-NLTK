@@ -21,6 +21,8 @@ VERIFY_TOKEN = os.getenv("VERIFY_TOKEN")
 WHATSAPP_TOKEN = os.getenv("WHATSAPP_TOKEN")
 PHONE_NUMBER_ID = os.getenv("PHONE_NUMBER_ID")
 
+VERIFY_TOKEN = "EAASVEjxwLzYBPRpk3gxcnmoqZCcnIVaopFnp3dXwoUP4AzGYUrj9DIEQnTJWnquDaUDwLmfHDlP3zBp1q8Y7ZALcOC9A1U6cDgysiliQJBP8iNWGyhYI7pTJi6qf6aY7AlsTs8HfnZBIAZCTeKR3cQsCOqEqInPND5ZAeHFgCMXeU8M11VG7pCrhHZAp2fZBtwNwzyayTdZCsXy7pEhAHmOYLXmGU7n34ECtrRyYltPnfAHkmgZDZD"
+WHATSAPP_TOKEN = "EAASVEjxwLzYBPRpk3gxcnmoqZCcnIVaopFnp3dXwoUP4AzGYUrj9DIEQnTJWnquDaUDwLmfHDlP3zBp1q8Y7ZALcOC9A1U6cDgysiliQJBP8iNWGyhYI7pTJi6qf6aY7AlsTs8HfnZBIAZCTeKR3cQsCOqEqInPND5ZAeHFgCMXeU8M11VG7pCrhHZAp2fZBtwNwzyayTdZCsXy7pEhAHmOYLXmGU7n34ECtrRyYltPnfAHkmgZDZD"
 PHONE_NUMBER_ID = "824098007449809"
 
 
@@ -44,6 +46,25 @@ def verify(req: Request):
         return PlainTextResponse(hub_challenge or "", status_code=200)
     else:
         return PlainTextResponse("", status_code=403)
+    
+@app.post("/teste")
+async def teste():
+    resp = requests.post(
+        f"https://graph.facebook.com/v23.0/{PHONE_NUMBER_ID}/messages",
+            headers={"Authorization": f"Bearer {WHATSAPP_TOKEN}",
+                    "Content-Type": "application/json"},
+            json={
+                "messaging_product": "whatsapp",
+                "recipient_type": "individual",
+                "to":  "5531971487033",
+                "type": "text",
+                "text": {"body": "TESTE"},
+            },
+            timeout=10,
+        )
+    print("Status:", resp.status_code)
+    print("Response:", resp.text)
+
 
 @app.post("/")
 async def incoming(req: Request):
@@ -82,8 +103,8 @@ async def incoming(req: Request):
                 print("type: text")
                 print(f"text: body: {resposta}")
 
-                requests.post(
-                    f"https://graph.facebook.com/v22.0/{PHONE_NUMBER_ID}/messages",
+                resp = requests.post(
+                    f"https://graph.facebook.com/v23.0/{PHONE_NUMBER_ID}/messages",
                     headers={"Authorization": f"Bearer {WHATSAPP_TOKEN}",
                             "Content-Type": "application/json"},
                     json={
@@ -91,10 +112,12 @@ async def incoming(req: Request):
                         "recipient_type": "individual",
                         "to": from_id,
                         "type": "text",
-                        "text": {"body": f"{resposta}"},
+                        "text": {"body": resposta},
                     },
                     timeout=10,
                 )
+                print("Status:", resp.status_code)
+                print("Response:", resp.text)
         except Exception:
             pass
         return PlainTextResponse("", status_code=200)
