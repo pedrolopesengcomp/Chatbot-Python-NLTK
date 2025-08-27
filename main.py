@@ -72,7 +72,7 @@ async def incoming(req: Request):
                 print(f'Resposta: {resposta}')
                 print(f'From : {from_id}')
                 print(f'PHONE_NUMBER_ID {PHONE_NUMBER_ID}')
-                print(f"https://graph.facebook.com/v22.0/{PHONE_NUMBER_ID}/messages")
+                print(f"https://graph.facebook.com/v23.0/{PHONE_NUMBER_ID}/messages")
                 print(f'headers=("Authorization": Bearer {WHATSAPP_TOKEN}')
                 print("Content-Type : application/json")
                 print("json={")
