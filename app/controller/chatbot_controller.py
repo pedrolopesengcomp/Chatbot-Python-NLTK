@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, Request, status
 from typing import Dict, Any
 from fastapi.responses import PlainTextResponse
-import os
+import os, requests
 
 import asyncio
 
@@ -43,7 +43,7 @@ async def incoming(req: Request):
             from_id = msg["from"]
             text = msg.get("text", {}).get("body", "")
 
-            reposta = await asyncio.to_thread(get_response, text)
+            resposta = await asyncio.to_thread(get_response, text)
 
             requests.post(
                 f"https://graph.facebook.com/v23.0/{PHONE_NUMBER_ID}/messages",
