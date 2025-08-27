@@ -21,9 +21,6 @@ VERIFY_TOKEN = os.getenv("VERIFY_TOKEN")
 WHATSAPP_TOKEN = os.getenv("WHATSAPP_TOKEN")
 PHONE_NUMBER_ID = os.getenv("PHONE_NUMBER_ID")
 
-VERIFY_TOKEN = "EAASVEjxwLzYBPRpk3gxcnmoqZCcnIVaopFnp3dXwoUP4AzGYUrj9DIEQnTJWnquDaUDwLmfHDlP3zBp1q8Y7ZALcOC9A1U6cDgysiliQJBP8iNWGyhYI7pTJi6qf6aY7AlsTs8HfnZBIAZCTeKR3cQsCOqEqInPND5ZAeHFgCMXeU8M11VG7pCrhHZAp2fZBtwNwzyayTdZCsXy7pEhAHmOYLXmGU7n34ECtrRyYltPnfAHkmgZDZD"
-WHATSAPP_TOKEN = "EAASVEjxwLzYBPRpk3gxcnmoqZCcnIVaopFnp3dXwoUP4AzGYUrj9DIEQnTJWnquDaUDwLmfHDlP3zBp1q8Y7ZALcOC9A1U6cDgysiliQJBP8iNWGyhYI7pTJi6qf6aY7AlsTs8HfnZBIAZCTeKR3cQsCOqEqInPND5ZAeHFgCMXeU8M11VG7pCrhHZAp2fZBtwNwzyayTdZCsXy7pEhAHmOYLXmGU7n34ECtrRyYltPnfAHkmgZDZD"
-PHONE_NUMBER_ID = "824098007449809"
 
 
 #@router.get("/{msg}", status_code=status.HTTP_200_OK)
@@ -47,23 +44,7 @@ def verify(req: Request):
     else:
         return PlainTextResponse("", status_code=403)
     
-@app.post("/teste")
-async def teste():
-    resp = requests.post(
-        f"https://graph.facebook.com/v23.0/{PHONE_NUMBER_ID}/messages",
-            headers={"Authorization": f"Bearer {WHATSAPP_TOKEN}",
-                    "Content-Type": "application/json"},
-            json={
-                "messaging_product": "whatsapp",
-                "recipient_type": "individual",
-                "to":  "5531971487033",
-                "type": "text",
-                "text": {"body": "TESTE"},
-            },
-            timeout=10,
-        )
-    print("Status:", resp.status_code)
-    print("Response:", resp.text)
+
 
 
 @app.post("/")
