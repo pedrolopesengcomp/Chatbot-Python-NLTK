@@ -2,12 +2,15 @@ from fastapi import APIRouter, Depends, HTTPException, Request, status
 from typing import Dict, Any
 from fastapi.responses import PlainTextResponse
 import os, requests
+from dotenv import load_dotenv
 
 import asyncio
 
 from app.Chatbot_NLTK.chat import get_response
 
 router = APIRouter(prefix="/chat", tags=["Chatbot", "Chat"])
+
+load_dotenv()
 
 VERIFY_TOKEN = os.getenv("VERIFY_TOKEN")
 WHATSAPP_TOKEN = os.getenv("WHATSAPP_TOKEN")
@@ -24,8 +27,11 @@ PHONE_NUMBER_ID = os.getenv("PHONE_NUMBER_ID")
 
 @router.get("/")
 def verify(mode: str = None, hub_challenge: str = None, hub_verify_token: str = None):
-    print("hub_challenge: " + hub_challenge)
-    print(f"hub_verify_token {hub_verify_token}")
+    print(f'mode == subscribe : {mode == "subscribe"}')
+    print(f'hub_challenge == VERIFY_TOKEN : {hub_verify_token == VERIFY_TOKEN}')
+    print(VERIFY_TOKEN)
+    if(mode == "subscribe"):
+        print("OK")
     if mode == "subscribe" and hub_verify_token == VERIFY_TOKEN:
         return PlainTextResponse(hub_challenge or "", status_code=200)
     else:
