@@ -32,8 +32,8 @@ PHONE_NUMBER_ID = os.getenv("PHONE_NUMBER_ID")
 
 @app.get("/")
 def verify(mode: str = None, hub_challenge: str = None, hub_verify_token: str = None):
-    print(f'mode == subscribe : {mode == "subscribe"}')
-    print(f'hub_challenge == VERIFY_TOKEN : {hub_verify_token == VERIFY_TOKEN}')
+    print(f'mode == subscribe : {mode == "subscribe"} - mode: {mode}')
+    print(f'hub_verify_token == VERIFY_TOKEN : {hub_verify_token == VERIFY_TOKEN} - hub: {hub_verify_token}')
     print(VERIFY_TOKEN)
     if(mode == "subscribe"):
         print("OK")
