@@ -40,10 +40,14 @@ def verify(mode: str = None, hub_challenge: str = None, hub_verify_token: str = 
 @router.post("/")
 async def incoming(req: Request):
     body = await req.json()
+    print(f'body{body}')
     try:
         entry = body["entry"][0]
         change = entry["changes"][0]
         msg = change["value"].get("messages", [None])[0]
+        print(f'entry: {entry}')
+        print(f'change: {change}')
+        print(f'msg: {msg}')
 
         if msg and "from" in msg:
             from_id = msg["from"]
@@ -57,6 +61,7 @@ async def incoming(req: Request):
                          "Content-Type": "application/json"},
                 json={
                     "messaging_product": "whatsapp",
+                    "recipient_type": "individual",
                     "to": from_id,
                     "type": "text",
                     "text": {"body": f"{resposta}"},
