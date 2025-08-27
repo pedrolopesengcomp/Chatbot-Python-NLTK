@@ -68,16 +68,16 @@ async def incoming(req: Request):
                 print(f'Resposta: {resposta}')
                 print(f'From : {from_id}')
                 print(f'PHONE_NUMBER_ID {PHONE_NUMBER_ID}')
-                print( f"https://graph.facebook.com/v22.0/{PHONE_NUMBER_ID}/messages")
-                print(f'headers=("Authorization": f"Bearer {WHATSAPP_TOKEN}"'
-                print("Content-Type": "application/json")
+                print(f"https://graph.facebook.com/v22.0/{PHONE_NUMBER_ID}/messages")
+                print(f'headers=("Authorization": Bearer {WHATSAPP_TOKEN}')
+                print("Content-Type : application/json")
                 print("json={")
                 print("messaging_product : whatsapp")
-                print("recipient_type": "individual")
+                print("recipient_type : individual")
                 print(f"to: {from_id}")
                 print("type: text")
-                print(f"text: body: {resposta}"))
-                
+                print(f"text: body: {resposta}")
+
                 requests.post(
                     f"https://graph.facebook.com/v22.0/{PHONE_NUMBER_ID}/messages",
                     headers={"Authorization": f"Bearer {WHATSAPP_TOKEN}",
