@@ -63,6 +63,8 @@ async def incoming(req: Request):
                 from_id = msg["from"]
                 text = msg.get("text", {}).get("body", "")
 
+                from_id = from_id[:4] + '9' + from_id[4:]
+
                 resposta = await asyncio.to_thread(get_response, text)
 
                 print(f'Resposta: {resposta}')
