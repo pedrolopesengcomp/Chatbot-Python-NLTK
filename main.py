@@ -57,6 +57,8 @@ async def incoming(req: Request):
             print(f'change: {change}')
             print(f'msg: {msg}')
 
+            
+
             if msg and "from" in msg:
                 from_id = msg["from"]
                 text = msg.get("text", {}).get("body", "")
@@ -64,9 +66,20 @@ async def incoming(req: Request):
                 resposta = await asyncio.to_thread(get_response, text)
 
                 print(f'Resposta: {resposta}')
-
+                print(f'From : {from_id}')
+                print(f'PHONE_NUMBER_ID {PHONE_NUMBER_ID}')
+                print( f"https://graph.facebook.com/v22.0/{PHONE_NUMBER_ID}/messages")
+                print(f'headers=("Authorization": f"Bearer {WHATSAPP_TOKEN}"'
+                print("Content-Type": "application/json")
+                print("json={")
+                print("messaging_product : whatsapp")
+                print("recipient_type": "individual")
+                print(f"to: {from_id}")
+                print("type: text")
+                print(f"text: body: {resposta}"))
+                
                 requests.post(
-                    f"https://graph.facebook.com/v23.0/{PHONE_NUMBER_ID}/messages",
+                    f"https://graph.facebook.com/v22.0/{PHONE_NUMBER_ID}/messages",
                     headers={"Authorization": f"Bearer {WHATSAPP_TOKEN}",
                             "Content-Type": "application/json"},
                     json={
