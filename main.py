@@ -31,7 +31,10 @@ PHONE_NUMBER_ID = os.getenv("PHONE_NUMBER_ID")
         #}
 
 @app.get("/")
-def verify(mode: str = None, hub_challenge: str = None, hub_verify_token: str = None):
+def verify(req: Request):
+    mode = req.query_params.get("hub.mode")
+    hub_verify_token = req.query_params.get("hub.verify_token")
+    hub_challenge = req.query_params.get("hub.challenge")
     print(f'mode == subscribe : {mode == "subscribe"} - mode: {mode}')
     print(f'hub_verify_token == VERIFY_TOKEN : {hub_verify_token == VERIFY_TOKEN} - hub: {hub_verify_token}')
     print(VERIFY_TOKEN)
