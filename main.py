@@ -21,6 +21,8 @@ VERIFY_TOKEN = os.getenv("VERIFY_TOKEN")
 WHATSAPP_TOKEN = os.getenv("WHATSAPP_TOKEN")
 PHONE_NUMBER_ID = os.getenv("PHONE_NUMBER_ID")
 
+PHONE_NUMBER_ID = "824098007449809"
+
 
 #@router.get("/{msg}", status_code=status.HTTP_200_OK)
 #async def resposta_chat(msg: str, request: Request) -> Dict[str, Any]:
