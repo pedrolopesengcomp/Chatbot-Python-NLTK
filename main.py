@@ -23,6 +23,7 @@ PHONE_NUMBER_ID = os.getenv("PHONE_NUMBER_ID")
 
 
 
+
 #@router.get("/{msg}", status_code=status.HTTP_200_OK)
 #async def resposta_chat(msg: str, request: Request) -> Dict[str, Any]:
     #reposta = await asyncio.to_thread(get_response, msg)

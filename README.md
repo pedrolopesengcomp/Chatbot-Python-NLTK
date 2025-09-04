@@ -12,3 +12,6 @@ pip install -U nltk
 
 Site usado de referencia para aprendizado
     https://community.intersystems.com/post/step-step-guide-create-customized-chatbot-using-spacy-python-nlp-library
+
+Instalado alembic, sqlalchemy e sqlite para aplicar no bd
+    Para atualizar o banco de dados, use o comando alembic revision --autogenerate -m "nome da versao"
